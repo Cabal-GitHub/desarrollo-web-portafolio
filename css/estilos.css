@@ -28,6 +28,38 @@ valores */
 /* background gris = #1b2127 */
 /* celeste = #026fff */
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?ccvg9m');
+  src:  url('../fonts/icomoon.eot?ccvg9m#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?ccvg9m') format('truetype'),
+    url('../fonts/icomoon.woff?ccvg9m') format('woff'),
+    url('../fonts/icomoon.svg?ccvg9m#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e900";
+}
+
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
@@ -76,6 +108,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 
 }
 
@@ -115,11 +148,15 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .project-course,
 .project-date,
 .project-url {
   margin: 10px 0;
+}
+.project-imageContainer img {
+  max-width: 100%;
 }
 .project-description {
   font-size: 20px;
@@ -139,11 +176,11 @@ h2 {
 
 
 .project-details {
-  width: 500px;
+  width: 50%;
 }
 
 .project-imageContainer {
-  width: 500px;
+  width: 50%;
 }
 
 .header {
@@ -153,6 +190,7 @@ h2 {
   height: 70px;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 ol,
@@ -209,6 +247,7 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer img {
@@ -227,8 +266,8 @@ figure {
   margin-left: 20px;
 }
 .event { 
-  margin: 10px;
-  width: 480px;
+  margin: 1%;
+  width: 48%;
   flex-shrink: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -266,10 +305,10 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.social {
-}
+
 
 .social-link {
   display: inline-block;
@@ -321,7 +360,8 @@ figure {
 
 .container {
   /* border: 1px solid red; */
-  width: 1000px;
+  max-width: 1000px;
+  flex:1;
   margin: 0 auto;
   display: inherit;
   justify-content: inherit;
@@ -329,3 +369,196 @@ figure {
   height: inherit;
   flex-wrap: inherit;
 }
+.html-video {
+  width: 100%;
+  height: auto;
+}
+.youtube-video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+.flex-video {
+  width: 100%;
+  height: 0;
+  padding: 56.25%;
+  background: blue;
+  position: relative;
+}
+
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: none;
+  background-color: rgba(0,0,0,.8);
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  z-index: 4;
+  top:5px;
+  color: white;
+
+}
+
+/* Insertamos medias queries para cada pantalla
+si es Desktop first se empieza de mayor a menor */
+
+
+
+@media screen and (max-width:1024px){
+  .container {
+    padding: 0 1em ;
+  }
+  .hero {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 2em;
+  }
+  h1 {
+    font-size: 2em;
+    z-index: 2;
+  }
+  .hero-image{
+    position: absolute;
+    z-index:1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:767px){
+  .burger-button {
+    display: block;
+  }
+  .header {
+    display:block;
+    height: auto;
+
+  }
+  .header ol {
+    display: initial;
+  }
+  .header ol li {
+    height: 50px;
+    text-align: center;
+  }
+  .header a {
+    justify-content: center;
+  }
+  .header .logo {
+    text-align: center;
+  }
+  .project {
+    display: block;
+  }
+  .project-imageContainer {
+    width: auto;
+    text-align: center;
+  }
+  .project-details {
+    width: auto;
+  }
+  .project-url, .project-date, .project-course {
+    margin: .3em 0;
+  }
+  .project-title {
+    font-size: 1.5em;
+    margin-bottom: .3em;
+  }
+  .project-url {
+    font-size: 1em;
+  }
+  .project-date {
+    font-size: 1em;
+  }
+  .project-description {
+    font-size: .8em;
+  }
+  .project-course {
+    font-size: 1.2em;
+  }
+  .event{
+    width: auto;
+    flex-shrink: initial;
+  }
+  .event img {
+    width: 100%;
+  }
+  .contact {
+    height: auto;
+    padding: 1em 0;
+    text-align: center;
+    display: block;
+  }
+  .form-email button {
+    margin: 1em auto;
+  }
+  .form-email h3 {
+    margin-top: 0;
+  }
+  .footer {
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  /* body {
+    border: 10px solid rgb(64, 226, 43);
+  } */
+  .menu {
+    position:fixed;
+    background:rgb(10 10 10 / 83%);
+    z-index: 3;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    /* height: 100vh; */
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+  }
+  .menu.is-active {
+    left: 0;
+
+  }
+
+}
+
+@media screen and (max-width:480px){
+  .project-details {
+    width: auto;
+    font-size: 12px;
+  }
+  .event-detail {
+    margin: -2en .5em .5em;
+    padding: 1em;
+  }
+  h1{
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width:320px){
+  /* body {
+    border: 10px solid blueviolet;
+  } */
+  h1{
+    font-size: 1.2em;
+  }
+  .hero {
+    padding: 2em 1em;
+  }
+}
+
+
